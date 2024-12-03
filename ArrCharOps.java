@@ -14,9 +14,9 @@ public class ArrCharOps {
         System.out.println(concat(arr1, arr2));
         System.out.println(subArray(arr2, 2, 9));
         System.out.println(compareTo("abcd", "abcd"));
+        System.out.println(compareTo("abc", "aBc")); 
         System.out.println(compareTo("abc", "abcd"));
-        System.out.println(compareTo("abw", "abcd"));
-        System.out.println(compareTo("Abcd", "a"));
+        System.out.println(compareTo("Abcd", "a")); 
         System.out.println(compareTo("apple", "banana"));
         System.out.println(compareTo("apple", "applepie"));
         System.out.println(compareTo("Zoo", "zoo"));
@@ -171,6 +171,10 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
+        if (str1.length() == 0 || str2.length() == 0) {
+            return -2;
+        }
+
         if (str1.length() == str2.length()) {
             for (int i = 0; i < str1.length(); i++) {
                 if (str1.charAt(i) != str2.charAt(i)) {
@@ -181,8 +185,8 @@ public class ArrCharOps {
                             return 1;
                     }
                 }
-                return 0;
             }
+            return 0;
         }
 
         if (str1.length() < str2.length()){
@@ -199,7 +203,7 @@ public class ArrCharOps {
             return -1;
         }  
 
-        if (str1.length() > str2.length()){
+        else {
             for (int i = 0; i < str2.length(); i++){
                 if (str1.charAt(i) != str2.charAt(i)) {
                     if(str1.charAt(i) < str2.charAt(i)){
@@ -213,6 +217,5 @@ public class ArrCharOps {
             return 1;
         } 
 
-        return -2;
     }
 }

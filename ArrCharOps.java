@@ -16,7 +16,7 @@ public class ArrCharOps {
         System.out.println(compareTo("abcd", "abcd"));
         System.out.println(compareTo("abc", "aBc")); 
         System.out.println(compareTo("abc", "abcd"));
-        System.out.println(compareTo("Abcd", "a")); 
+        System.out.println(compareTo("Abcd", "")); 
         System.out.println(compareTo("apple", "banana"));
         System.out.println(compareTo("apple", "applepie"));
         System.out.println(compareTo("Zoo", "zoo"));
@@ -171,51 +171,34 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        if (str1.length() == 0 || str2.length() == 0) {
-            return -2;
-        }
-
-        if (str1.length() == str2.length()) {
-            for (int i = 0; i < str1.length(); i++) {
-                if (str1.charAt(i) != str2.charAt(i)) {
-                    if(str1.charAt(i) < str2.charAt(i)){
-                        return -1;
-                    }
-                        else {
-                            return 1;
-                    }
+        int counter = 0; 
+        while (counter < str1.length() && counter < str2.length()) {
+            if (str1.charAt(counter) != str2.charAt(counter)) {
+                if(str1.charAt(counter) < str2.charAt(counter)){
+                    return -1;
+                }
+                else {
+                    return 1;
                 }
             }
+            else {
+                counter ++; 
+            }
+        }
+        if (counter == str1.length() && counter == str2.length()){
             return 0;
         }
-
-        if (str1.length() < str2.length()){
-            for (int i = 0; i < str1.length(); i++){
-                if (str1.charAt(i) != str2.charAt(i)) {
-                    if(str1.charAt(i) < str2.charAt(i)){
-                        return -1;
-                    }
-                        else {
-                            return 1;
-                        }
-                }
-            }   
+        if (counter == str1.length() && counter < str2.length()) {
             return -1;
-        }  
-
-        else {
-            for (int i = 0; i < str2.length(); i++){
-                if (str1.charAt(i) != str2.charAt(i)) {
-                    if(str1.charAt(i) < str2.charAt(i)){
-                        return -1;
-                    }
-                        else {
-                            return 1;
-                        }
-                }
-            }   
+        }
+        if (counter == str1.length() && counter > str2.length()) {
             return 1;
-        } 
+        }
+        else {
+            return -2;
+
+        }
+
 
     }
 }

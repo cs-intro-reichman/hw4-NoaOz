@@ -21,6 +21,30 @@ public class KeywordsDetector {
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
-    }
+        for (int i = 0; i < sentences.length; i++) {
+            String str =  sentences[i]; 
+            str = str.toLowerCase();
+
+            for (int j = 0; j < keywords.length; j++) {
+                keywords[j] = keywords[j].toLowerCase();
+
+                for (int y = 0; y < str.length(); y++) {
+                    boolean Isfound = true;
+
+                    for (int r = 0; r < keywords[j].length(); r++) {
+
+                        if (str.charAt(y) != keywords[j].charAt(r)) {
+                            Isfound = false;
+                            break;
+                        }
+                }
+                if (Isfound == true) {
+                    System.out.println(str);
+                }
+            }
+
+            }
+        }
+
+        }
 }
